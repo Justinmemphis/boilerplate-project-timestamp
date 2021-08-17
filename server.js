@@ -33,9 +33,9 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/:date", (req, res, next) => {
   if (req.params >= -8.64e12 && req.params <= 8.64e15) {
     res.send(req.params);
-    next();
+    break;
   } else {
-    res.send({ "error: Invalid Date"});
+    res.json({error: "Invalid Date"});
   }
 });
 
