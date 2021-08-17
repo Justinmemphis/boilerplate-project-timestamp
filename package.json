@@ -1,5 +1,6 @@
 {
 	"name": "fcc-api-projects-boilerplate",
+	"author": "Justin Carter",
 	"version": "0.0.2",
 	"description": "An FCC Backend Challenge",
 	"main": "server.js",
