@@ -31,7 +31,7 @@ app.get("/api/hello", function (req, res) {
 */
 
 app.get("/api/:date", (req, res) => {
-  res.send(req.params.date*3);
+  res.send(JSON.parse(req.params.date)*3);
   /*
   if (req.params >= -8.64e12 && req.params <= 8.64e15) {
     res.send(req.params);
