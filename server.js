@@ -35,7 +35,7 @@ app.get("/api/:date", (req, res, next) => {
     res.send(req.params);
     next();
   } else {
-    res.json({ "error: Invalid Date"});
+    res.send({ "error: Invalid Date"});
   }
 });
 
