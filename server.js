@@ -6,8 +6,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 
+// enable body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(bodyParser.json());
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
@@ -31,10 +31,8 @@ app.get("/api/hello", function (req, res) {
 */
 
 app.get("/api/:date", function (req, res) {
-  res.json({
-  // fill in rest here - stopped 08/17/2021
-  })
-})
+  res.send(req.params);
+});
 
 
 // listen for requests :)
