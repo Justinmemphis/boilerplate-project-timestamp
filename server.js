@@ -39,7 +39,7 @@ app.get("/api/hello", function (req, res) {
 */
 
 app.get("/api/:date", (req, res) => {
-  const dateNumber = 0;
+  var dateNumber = 0;
   if (req.params.date) {
     dateNumber = parseInt(req.params.date);
   } else {                                    // if no input - give current time
