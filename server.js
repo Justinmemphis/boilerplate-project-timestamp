@@ -41,7 +41,7 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/:date", (req, res) => {
   var dateNumber = 0;
   if (!req.params) {                              // if no input
-    res.json({error: "No Date Given"});
+    return res.json({error: "No Date Given"});
   } else {
     dateNumber = parseInt(req.params.date);
   }
