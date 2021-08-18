@@ -40,14 +40,12 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   const dateNumber = parseInt(req.params.date);
-  res.send([dateNumber*3]);
-  /*
-  if (req.params >= -8.64e12 && req.params <= 8.64e15) {
-    res.send(req.params);
+  //res.send([dateNumber*3]);
+  if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {
+    res.send([dateNumber]);
   } else {
     res.json({error: "Invalid Date"});
   }
-  */
 });
 
 
