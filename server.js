@@ -40,10 +40,10 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   var dateNumber = 0;
-  if (req.params.date) {
-    dateNumber = parseInt(req.params.date);
-  } else {                                    // if no input - give current time
+  if (!req.params) {                              // if no input
     res.json({error: "No Date Given"});
+  } else {
+    dateNumber = parseInt(req.params.date);
   }
   //res.send([dateNumber*3]);
   if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
