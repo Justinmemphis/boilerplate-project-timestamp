@@ -1,6 +1,14 @@
 // server.js
 // where your node app starts
 
+/*
+Notes - to-do:
+08/18/21 - look into how to modify URL output of app.get to see how to parse
+into a number format.  Once in a number format can test for if a valid
+number or not.  If a valid number than can process normally.  If not a
+valid number then will throw error.
+*/
+
 // init project
 var express = require('express');
 var app = express();
@@ -31,7 +39,7 @@ app.get("/api/hello", function (req, res) {
 */
 
 app.get("/api/:date", (req, res) => {
-  res.send(req.params); 
+  // res.send(req.params);  // this is what is breaking
   /*
   if (req.params >= -8.64e12 && req.params <= 8.64e15) {
     res.send(req.params);
