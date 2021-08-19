@@ -3,10 +3,8 @@
 
 /*
 Notes - to-do:
-08/18/21 - look into how to modify URL output of app.get to see how to parse
-into a number format.  Once in a number format can test for if a valid
-number or not.  If a valid number than can process normally.  If not a
-valid number then will throw error.
+08/18/21 - Look into how to return current time with an empty date parameter -
+not sure how to get this working at present
 */
 
 // init project
@@ -40,7 +38,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   var dateNumber = 0;
-  if (!req.params) {                              // if no input
+  if (!req.params) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
   } else {
     dateNumber = parseInt(req.params.date);
