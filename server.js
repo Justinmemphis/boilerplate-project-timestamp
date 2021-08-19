@@ -44,8 +44,9 @@ app.get("/api/:date", (req, res) => {
     dateNumber = parseInt(req.params.date);
   }
   //res.send([dateNumber*3]);
+  var utcTime = new Date(dateNumber);
   if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
-    return res.json({unix: dateNumber});
+    return res.json({unix: dateNumber, utc: utcTime});
   } else {
     res.json({error: "Invalid Date"});
   }
