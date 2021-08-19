@@ -45,7 +45,7 @@ app.get("/api/:date", (req, res) => {
   }
   //res.send([dateNumber*3]);
   if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
-    res.send([dateNumber]);
+    return res.json(dateNumber);
   } else {
     res.json({error: "Invalid Date"});
   }
