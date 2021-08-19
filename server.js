@@ -5,6 +5,11 @@
 Notes - to-do:
 08/18/21 - Look into how to return current time with an empty date parameter -
 not sure how to get this working at present
+08/19/21 - res.json is really JSON.stringify "under the hood" - need to figure
+out how to catch strings and variables inside to pretty output
+-Also date amount is correct but format is still wrong
+-actually nevermind - JSON doesn't really matter with the " " - I just need to
+get the date formatted correctly and it should past the tests
 */
 
 // init project
