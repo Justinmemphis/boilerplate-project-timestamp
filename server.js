@@ -51,7 +51,7 @@ app.get("/api/:date", (req, res) => {
     dateNumber = parseInt(fooBar);
   }
   //res.send([dateNumber*3]);
-  var utcTime = new Date(dateNumber).toString();
+  var utcTime = new Date(dateNumber).toGMTString();
   if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
     return res.json({unix: dateNumber, utc: utcTime});
   } else {
