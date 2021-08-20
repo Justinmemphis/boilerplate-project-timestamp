@@ -46,10 +46,10 @@ app.get("/api/:date", (req, res) => {
   if (!req.params) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
   } else if (testString.includes("-")) {
-    var newUtcTime = new Date(testString);
-    newUtcTime.toGMTString();
-    dateNumber = Math.floor(newUtcTime()/1000);
-    return res.json({unix: dateNumber, utc: newUtcTime});
+    var d1 = new Date(testString);
+    d1.toGMTString();
+    dateNumber = Math.floor(d1.getTime()/1000);
+    return res.json({unix: dateNumber, utc: d1});
   } else {
     dateNumber = parseInt(testString);
     var utcTime = new Date(dateNumber).toGMTString();
