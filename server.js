@@ -48,7 +48,7 @@ app.get("/api/:date", (req, res) => {
     var d1 = new Date(testString);
     d1.toGMTString();
     var extraNumber = 0;
-    extraNumber = Math.floor(d1.getTime()/1000);
+    extraNumber = Math.floor(d1.getTime());
     return res.json({unix: extraNumber, utc: d1});
   } else {
     var dateNumber = 0;
