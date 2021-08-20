@@ -42,10 +42,11 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   var dateNumber = 0;
+  var fooBar = req.params;
   if (!req.params) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
-  } else if (req.params.includes(".")) {
-    dateNumber = Math.floor((new Date(parseInt(req.params))).getTime() / 1000);
+  } else if (fooBar.includes(".")) {
+    dateNumber = Math.floor((new Date(parseInt(req.params.date))).getTime() / 1000);
   } else {
     dateNumber = parseInt(req.params.date);
   }
