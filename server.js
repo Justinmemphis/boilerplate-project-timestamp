@@ -46,7 +46,7 @@ app.get("/api/:date", (req, res) => {
     return res.json({error: "No Date Given"});
   } else if (testString.includes("-")) {
     var d1 = new Date(testString);
-    d1 = d1.toGMTString();
+    d1.toGMTString();
     var extraNumber = 0;
     extraNumber = Math.floor(d1.getTime()/1000);
     return res.json({unix: extraNumber, utc: d1});
