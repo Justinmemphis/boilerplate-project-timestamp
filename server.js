@@ -11,8 +11,11 @@ get the date formatted correctly and it should past the tests
 to have string setup correctly before passing to the JSON object
 08/20/21 v2 - passing first four tests; now need to correct the following:
 1. Can new Date(date_string) work?  If so pass test on.  If not say "Invalid
-Date"
+Date" -- really close to getting this working; it's still processing on for some
+reason
 2. How to test for empty parameter?  It should return current time ("now")
+
+See also codepen "Javascript test suite" for testing
 */
 
 // init project
