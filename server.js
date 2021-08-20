@@ -44,6 +44,8 @@ app.get("/api/:date", (req, res) => {
   var dateNumber = 0;
   if (!req.params) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
+  } else if (req.params.includes(".")) {
+    dateNumber = Math.floor((new Date(parseInt(req.params))).getTime() / 1000);
   } else {
     dateNumber = parseInt(req.params.date);
   }
