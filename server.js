@@ -9,6 +9,10 @@ out how to catch strings and variables inside to pretty output
 get the date formatted correctly and it should past the tests
 08/20/21 - JSON.stringify will just convert date objects to string.  So I need
 to have string setup correctly before passing to the JSON object
+08/20/21 v2 - passing first four tests; now need to correct the following:
+1. Can new Date(date_string) work?  If so pass test on.  If not say "Invalid
+Date"
+2. How to test for empty parameter?  It should return current time ("now")
 */
 
 // init project
@@ -42,7 +46,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   var testString = req.params.date;
-  if (!req.params) {                              // if no input - doesn't work
+  if (req.params == undefined) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
   } else if (testString.includes("-")) {
     var d1 = new Date(testString);
