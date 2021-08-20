@@ -7,6 +7,8 @@ Notes - to-do:
 out how to catch strings and variables inside to pretty output
 - JSON doesn't really matter with the " " - I just need to
 get the date formatted correctly and it should past the tests
+08/20/21 - JSON.stringify will just convert date objects to string.  So I need
+to have string setup correctly before passing to the JSON object
 */
 
 // init project
@@ -46,7 +48,7 @@ app.get("/api/:date", (req, res) => {
     dateNumber = parseInt(req.params.date);
   }
   //res.send([dateNumber*3]);
-  var utcTime = new Date(dateNumber).toLocaleString();
+  var utcTime = new Date(dateNumber).toDateString();
   if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
     return res.json({unix: dateNumber, utc: utcTime});
   } else {
