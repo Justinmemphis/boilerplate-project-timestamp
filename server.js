@@ -42,13 +42,13 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   var dateNumber = 0;
-  var fooBar = req.params;
+  var fooBar = req.params.date;
   if (!req.params) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
   } else if (fooBar.includes(".")) {
-    dateNumber = Math.floor((new Date(parseInt(req.params.date))).getTime() / 1000);
+    dateNumber = Math.floor((new Date(parseInt(fooBar))).getTime() / 1000);
   } else {
-    dateNumber = parseInt(req.params.date);
+    dateNumber = parseInt(fooBar);
   }
   //res.send([dateNumber*3]);
   var utcTime = new Date(dateNumber).toString();
