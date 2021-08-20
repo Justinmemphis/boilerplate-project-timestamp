@@ -45,7 +45,7 @@ app.get("/api/:date", (req, res) => {
   var testString = req.params.date;
   if (!req.params) {                              // if no input - doesn't work
     return res.json({error: "No Date Given"});
-  } else if (testString.includes(".")) {
+  } else if (testString.includes("-")) {
     var d1 = new Date(testString);
     d1.toUTCString();
     dateNumber = Math.floor(d1.getTime()/ 1000);
