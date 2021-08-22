@@ -54,7 +54,7 @@ app.get("/api/:date?", (req, res) => {
     var presentTimeNumber = Date.now();
     var utcTimeString = new Date(presentTimeNumber).toGMTString();
     res.json({unix: presentTimeNumber, utc: utcTimeString});
-  } else if (isNaN(inputString) && !isNaN(parsedDateString)) {
+  } else if (isNaN(inputString) && !isNaN(parsedInputString)) {
     var d1 = new Date(inputString);
     d1.toGMTString();
     var extraNumber = 0;
