@@ -49,7 +49,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date?", (req, res) => {
   var testString = req.params.date;
-  if (testString === "") {                              // if no input - doesn't work
+  if (testString === undefined) {                              // if no input - doesn't work
     res.json({error: "No Date Given"});
   } else if (testString.includes("-")) {
     var d1 = new Date(testString);
