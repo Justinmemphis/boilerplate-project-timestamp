@@ -1,22 +1,6 @@
 // server.js
 // where your node app starts
 
-/*
-Notes - to-do:
-08/19/21 - res.json is really JSON.stringify "under the hood" - need to figure
-out how to catch strings and variables inside to pretty output
-- JSON doesn't really matter with the " " - I just need to
-get the date formatted correctly and it should past the tests
-08/20/21 - JSON.stringify will just convert date objects to string.  So I need
-to have string setup correctly before passing to the JSON object
-08/20/21 v2 - passing first four tests; now need to correct the following:
-1. Can new Date(date_string) work?  If so pass test on.  If not say "Invalid
-Date" -- really close to getting this working; it's still processing on for some
-reason
-2. How to test for empty parameter?  It should return current time ("now")
-
-See also codepen "Javascript test suite" for testing
-*/
 
 // init project
 var express = require('express');
@@ -40,13 +24,6 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-/*
-// your first API endpoint...
-app.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
-});
-*/
-
 app.get("/api/:date?", (req, res) => {
   var inputString = req.params.date;
   var parsedInputString = Date.parse(inputString);
@@ -65,7 +42,7 @@ app.get("/api/:date?", (req, res) => {
     var dateNumber = 0;
     dateNumber = parseInt(inputString);
     var utcTimeString = new Date(dateNumber).toGMTString();
-    if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
+    if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {
       res.json({unix: dateNumber, utc: utcTimeString});
     } else {
       res.json({error: "Invalid Date"});
