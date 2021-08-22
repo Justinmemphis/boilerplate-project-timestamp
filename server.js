@@ -49,8 +49,10 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date?", (req, res) => {
   var testString = req.params.date;
-  if (testString === undefined) {                              // if no input - doesn't work
-    res.json({error: "No Date Given"});
+  if (testString === undefined) {
+    var presentTimeNumber = Date.now();
+    var utcTimeString = new Date(presentTimeNumber).toGMTString();
+    res.json({unix: presentTimeNumber, utc: utcTimeString});
   } else if (testString.includes("-")) {
     var d1 = new Date(testString);
     d1.toGMTString();
@@ -61,9 +63,9 @@ app.get("/api/:date?", (req, res) => {
   } else {
     var dateNumber = 0;
     dateNumber = parseInt(testString);
-    var utcTime = new Date(dateNumber).toGMTString();
+    var utcTimeString = new Date(dateNumber).toGMTString();
     if (dateNumber >= -8.64e12 && dateNumber <= 8.64e15) {   // check if valid time
-      res.json({unix: dateNumber, utc: utcTime});
+      res.json({unix: dateNumber, utc: utcTimeString});
     } else {
       res.json({error: "Invalid Date"});
     }
